@@ -23,12 +23,22 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 .pnpm-debug.log*
 
 # local env files
+=======
+
+# local env files
+.env*.local
+>>>>>>> origin/main
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
+<<<<<<< HEAD
+=======
+next-env.d.ts
+>>>>>>> origin/main
