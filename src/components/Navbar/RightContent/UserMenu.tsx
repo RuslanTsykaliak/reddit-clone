@@ -18,15 +18,23 @@ import { VscAccount } from "react-icons/vsc";
 import { IoSparkles } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineLogin } from "react-icons/md";
-import { useSetRecoilState } from "recoil";
+import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "@/src/atoms/authModalAtom";
+import { communityState } from "@/src/atoms/communitiesAtom";
 
 type UserMenuProps = {
   user?: User | null;
 };
 
 const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
+  const resetCommunityState = useResetRecoilState(communityState);
   const setAuthModalState = useSetRecoilState(authModalState);
+
+  const logout = async () => {
+    await signOut(auth);
+    // resetCommunityState();
+    // clear community sate
+  };
 
   // Menu component for user actions (profile, log out) based on user authentication
   return (
@@ -66,7 +74,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                   </Flex>
                 </Flex>
               </>
-            ) : ( // Show account icon if the user is not authenticated
+            ) : (
+              // Show account icon if the user is not authenticated
               <Icon fontSize={24} color="gray.400" mr={1} as={VscAccount} />
             )}
           </Flex>
@@ -95,7 +104,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
               fontSize="10pt"
               fontWeight={700}
               _hover={{ bg: "blue.500", color: "white" }}
-              onClick={() => signOut(auth)} // Log out on click
+              onClick={logout} // Log out on click
             >
               <Flex align="center">
                 <Icon fontSize={20} mr={2} as={MdOutlineLogin} />
@@ -103,7 +112,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
               </Flex>
             </MenuItem>
           </>
-        ) : ( // If the user is not authenticated, show log in / sign up option
+        ) : (
+          // If the user is not authenticated, show log in / sign up option
           <>
             {/* Log in / Sign up menu item */}
             <MenuItem
