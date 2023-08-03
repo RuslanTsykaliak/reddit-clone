@@ -1,7 +1,3 @@
-# Reddit Clone Project - README
-
-This README provides an overview of the Reddit Clone project and the steps taken to set up and run the project. As a senior developer, I followed best practices and included relevant documentation to ensure the project is well-documented and easy to use for future developers.
-
 ## Project Overview
 
 The Reddit Clone project is a web application built with Next.js, TypeScript, and Chakra UI. It aims to replicate some of the core features of the popular social media platform Reddit, including communities, posts, voting, and comments.
@@ -74,4 +70,3 @@ If you want to contribute to this project, feel free to open a pull request. Ens
 ## Contact
 
 If you have any questions or need assistance with the project, feel free to contact me at ruslan.tsykaliak@gmail.com`.
-
